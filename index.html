@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=1024, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Josefin+Sans" />
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="toggleAudio.css" />
+  <link rel="stylesheet" href="togglePauseResume.css" />
+  <link rel="stylesheet" href="slideshowbutton.css"/>
+  <script src="assets/scripts/jquery-1.11.3.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="audioToggle.js"></script>
+  <!--<script type="text/javascript" src="slidebuttonfeature.js"></script>-->
+  <script>
+	
+	$(document).on('mobileinit',function(){
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+		
+		// Eliminate <h1>loading</h1>
+		$.mobile.ignoreContentEnabled = true;
+    });
+
+	function changeImage(src){
+		//alert("JK" + src);
+		//var source = src;
+		//document.getElementById("slideId").src = src;
+	}
+	</script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <link rel = "stylesheet" type = "text/css" href = "main.css" />
+  <link rel = "stylesheet" type = "text/css"  href = "responsive.css" />
+  
+  </head>
+<body>
+
+<div id="header">
+<section class = "headerInner">
+<section id = "content1">
+<section id = "title">
+<span>Memories</span>
+</section>
+</section>
+</section>
+</div>
+<div class="background-wrap">
+	<a href=""></a>
+	<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
+		<source src="assets/backgrounds/bg-video-1.mp4" type="video/mp4"/>
+		Video not supported
+	</video>
+	<audio id="audio-bg-elem">
+		<source src="assets/backgrounds/audio/sandakkara.mp3" type="audio/mpeg"/>
+	</audio>
+
+</div>
+<main>
+<section class = "content">
+<section class="overlay" id="overlay" style="display:none; background-color: #000; opacity: 0.4; background-size: cover;"></section>
+<section id="cont">
+<section id="slideshow">
+		<img src="assets/images/focus2.jpg">
+		<img src="assets/images/race1.jpg">
+		<img src="assets/images/workout1.jpg">
+		<img src="assets/images/goal1.jpg">
+		<img src="assets/images/lee2.jpg">
+		<img src="assets/images/lee1.jpg">
+		<img src="assets/images/lee3.jpg">
+		<img src="http://lorempixel.com/800/400/animals">
+</section>
+</section>
+<section id="container">
+	<section id="containerPics">
+		<section  id="slideshowContainer" >		
+				<section  data-role="page" id="show" class = "showImage" style="min-height: 400px !important;">
+					<!--<button id="prevImage" class="arrow left">Left</button>-->
+					<input id="prevImage" class="arrow left" type="image" src="assets\images\nav\leftt.png"  alt="Submit" width="48" height="48">
+					<img id ="slideId" src="" onclick = "null"/>
+					<!--<button id="nextImage" class="arrow right">Right</button>-->
+					<input id="nextImage" class="arrow right" type="image" src="assets\images\nav\rightt.png"  alt="Submit" width="48" height="48">
+					
+				</section>
+		</section>
+			<section id="set" style="background-color: #000000;">
+				<ul id = "imageSet">
+					<li class="image" id = "l0"><img id = "i0" src="" onclick="changeImage(this.src)"/></li>
+					<li class="image" id = "l1"><img id = "i1" src="" onclick="changeImage(this.src)"/></li>
+					<li class="image" id = "l2"><img id = "i2" src="" onclick="changeImage(this.src)"/></li>
+					<li class="image" id = "l3"><img id = "i3" src="" onclick="changeImage(this.src)"/></li>
+					<li class="image" id = "l4"><img id = "i4" src="" onclick="changeImage(this.src)"/></li>
+					<li class="image" id = "l5"><img id = "i5" src="" onclick="changeImage(this.src)"/></li>
+					<li class="image" id = "l6"><img id = "i6" src="" onclick="changeImage(this.src)"/></li>
+					<li class="image" id = "l7"><img id = "i7" src="" onclick="changeImage(this.src)"/></li>
+					<!--<li class="image" id = "l8"><img id = "i8" src="" onclick="changeImage(this.src)"/></li>-->
+				</ul>
+			</section>
+	</section>
+</section>
+<section>
+		<div id="slide">
+			<div id="axis">
+				<div class="transitbox object move-left"></div>
+			</div>
+		</div>
+		<div id="intro-wrap">
+			<div class="open-intro">
+				<img src="aset-logo/1.jpg" width="25" height="25"/>
+			</div>
+			<div class="close-intro">
+				<img src="aset-logo/1.jpg" width="25" height="25"/>
+			</div>
+			<div id="content-wrap">
+				<span id="pause">Pause</span>
+				<span id="resume">Resume</span>
+				<label class="switch">
+					<div><input type="checkbox" ><span class="slider round"></span></div>	
+				</label>
+				<br>
+				<span id="mute">Unmute</span>
+				<span id="unmute">Mute</span>
+				<label class="switch">
+					<div><input type="checkbox" ><span class="slider1 round1"></span></div>	
+				</label>
+				<span id="changeVolume">Volume</span>
+				<input type="range" id="volumeSlider" class = "volumeSlide" min=0 max=1 step=0.01 value='1'>
+			</div>
+		</div>
+</section>
+</section>
+</main>
+<script type = "text/javascript" src="app1.js"></script>
+<script type="text/javascript" src="volumeSlider.js"></script>
+</body>
+</html>
